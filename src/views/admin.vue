@@ -26,12 +26,12 @@
                             </svg>
                             <span>Add Students</span>
                         </li> -->
-                        <li @click="showLec" class="listt" id="addL">
+                        <!-- <li @click="showLec" class="listt" id="addL">
                             <svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.75 5.828C3.75 8.8205 6.0075 11.078 9 11.078C11.9925 11.078 14.25 8.8205 14.25 5.828C14.25 2.8355 11.9925 0.578003 9 0.578003C6.0075 0.578003 3.75 2.8355 3.75 5.828ZM25.5 5H22.5V9.5H18V12.5H22.5V17H25.5V12.5H30V9.5H25.5V5ZM3 21.5H18V20C18 15.8645 14.6355 12.5 10.5 12.5H7.5C3.3645 12.5 0 15.8645 0 20V21.5H3Z"/>
                             </svg>
                             <span>Add Lecturers</span>
-                        </li>
+                        </li> -->
                         <li class="logout">
                             <svg width="30" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.796 2.24399C12.653 1.82599 14 3.42199 14 4.99999V19C14 20.578 12.653 22.174 10.796 21.756C6.334 20.752 3 16.766 3 12C3 7.23399 6.334 3.24799 10.796 2.24399ZM16.293 8.29299C16.4805 8.10552 16.7348 8.0002 17 8.0002C17.2652 8.0002 17.5195 8.10552 17.707 8.29299L20.707 11.293C20.8945 11.4805 20.9998 11.7348 20.9998 12C20.9998 12.2652 20.8945 12.5195 20.707 12.707L17.707 15.707C17.5184 15.8891 17.2658 15.9899 17.0036 15.9877C16.7414 15.9854 16.4906 15.8802 16.3052 15.6948C16.1198 15.5094 16.0146 15.2586 16.0123 14.9964C16.01 14.7342 16.1108 14.4816 16.293 14.293L17.586 13H9C8.73478 13 8.48043 12.8946 8.29289 12.7071C8.10536 12.5196 8 12.2652 8 12C8 11.7348 8.10536 11.4804 8.29289 11.2929C8.48043 11.1053 8.73478 11 9 11H17.586L16.293 9.70699C16.1055 9.51946 16.0002 9.26515 16.0002 8.99999C16.0002 8.73482 16.1055 8.48052 16.293 8.29299Z" fill="#924374"/>
@@ -266,7 +266,7 @@
             var config = {
                 method: "GET",
                 // url: 'http://localhost/project/get.php?retrieve=1',
-                url: 'https://futa.smarthub.click/php/get.php?retrieve=1',
+                url: 'https://futa.smarthub.click/php/get.php?retrieve=1', 
                 headers: { }
             };
 
@@ -275,7 +275,8 @@
                 this.username = response.data
 
                 this.storage = this.username;
-                // console.log(this.storage);
+                console.log("The storage from the server is" + this.storage);
+                console.log("This is from the local server")
             })
             .catch(function (error) {
                 console.log(error);

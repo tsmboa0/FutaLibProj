@@ -16,6 +16,7 @@
           </div>
 
           <form @submit.prevent="onSubmit">
+              <p id="invalidCred" style="color: red;display: none;"> Incorrect email or password!</p>
               <div class="lecturer">
                   <div>
                       <p>Email</p>
@@ -31,7 +32,7 @@
                     v-model="v$.form.password.$model"
                     -->
                       <p>Password</p>
-                      <input type="password" placeholder="••••••••">
+                      <input id="passwordd" required type="password" placeholder="••••••••">
                       <!-- <div class="input-errors" v-for="(error, index) of v$.form.password.$errors" :key="index">
                         <div class="error-msg">{{ error.$message }}</div>
                       </div> -->
@@ -154,13 +155,16 @@ import useVuelidate from '@vuelidate/core'
       onSubmit() {
         var submit = document.querySelector(".submit");
 
-        var email = document.getElementById('emaill')
+        var email = document.getElementById('emaill');
+        var password = document.getElementById('passwordd');
+        var cred = document.getElementById('invalidCred');
 
-        if(email.value === "ola@futa.edu.ng") {
+        if(email.value === "ola@futa.edu.ng" && password.value === 'FutaLibProj1#') {
           submit.disabled = false;
           this.$router.push('/admin')
           
         } else {
+          cred.style.display='block';
           submit.style.background = "red";
         }
         console.log(this.$store.state.email)

@@ -85,7 +85,7 @@ export default {
       .then((response) =>  {
         this.allData = response.data
 
-        // console.log(JSON.stringify(this.allData))
+        console.log(JSON.stringify(this.allData))
       })
       .catch(function (error) {
         console.log(error);
@@ -179,8 +179,12 @@ export default {
     check() {
 
       let btn = document.getElementById ('searchBtn');
+      localStorage.setItem('searchKey', search.value);
+      console.log(localStorage.getItem('searchKey'));
+      console.log("passed localstorage");
 
       if(search.value !== '') {
+        
         this.$router.push('/search');
       } else {
         

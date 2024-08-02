@@ -10,10 +10,12 @@
             </div>
             </div>
             <div class="tList">
-                <ul>
+                <ul v-if="(this.searchresults).length > 0">
                     <!-- <router-link to="/project">hey</router-link> -->
-                    <li class="list" @click="listt()">Design And Implementation Of A Computerized Hotel Management System</li>
-                    <li class="list" @click="listt()">Design And Implementation Of A Computerized Airline Reservation System</li>
+                    <li v-for="(item, index) in this.searchresults"   class="list" :key="index" @click="listt()">{{ item }}</li>
+                </ul>
+                <ul v-else>
+                    <li class="list">Search Item Not Found!</li>
                 </ul>
             </div>
         </div>
@@ -29,10 +31,47 @@ export default {
     navbar,
   },
 
+  data() {
+    return {
+      allData: '',
+      searchkey:'',
+      searchresults:[],
+      empty: false,
+    }
+  },
+
+  mounted() {
+    this.searchkey = localStorage.getItem('searchKey');
+    var axios = require('axios');
+
+      var config = {
+        method: "get",
+        url: 'https://futa.smarthub.click/php/res.php?fetch_topics=1' ,
+        // 'http://localhost/project/res.php?fetch_topics=1',
+        headers: { }
+      };
+
+      axios(config)
+      .then((response) =>  {
+        this.allData = response.data;
+
+        (this.allData).forEach(result => {
+            console.log(result);
+            if(result.toLowerCase().includes(this.searchkey)){
+                this.searchresults.push(result);
+            };
+        });
+        console.log("serachresult is ",(filteredList).length); 
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  },
+
   methods: {
     listt() {
         // this.$router.push('/search');
-        this.$router.push('/project');
+        this.$router.push('/project/');
     }
   },
 }
