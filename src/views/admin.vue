@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="inpuuts">
-                                <div class="custom-file-upload">
+                                <!-- <div class="custom-file-upload">
                                     <input id="file-upload" type="file" ref="imageUploader"  @change="onFileChange"  class="input-file" />
                                         <div v-if="!files || !files.length" class="fllex"> 
                                             <div class="icon"><i class="ri-upload-cloud-fill"></i></div>
@@ -118,7 +118,7 @@
                                                 <span  class="image-name_color"> {{ file.name }} </span> 
                                             </p>
                                         </div>
-                                </div>
+                                </div> -->
                                 <div tyle="width: 47%">
                                     <p>Project Page</p>
                                     <input type="number" name="pages" id="pages" v-model="pages">
