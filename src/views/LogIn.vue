@@ -161,6 +161,8 @@ import useVuelidate from '@vuelidate/core'
 
         if(email.value === "ola@futa.edu.ng" && password.value === 'FutaLibProj1#') {
           submit.disabled = false;
+          localStorage.setItem('loggedin', true);
+          console.log(localStorage.getItem('loggedin'));
           this.$router.push('/admin')
           
         } else {

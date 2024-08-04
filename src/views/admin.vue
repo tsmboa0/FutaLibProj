@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="admin">
+        <div v-if="this.display === 'block'" class="admin">
             <div class="nav">
                 <div>
                     <router-link to="/"><img src="@/assets/Logo.svg" alt="" width="150px" height="150px"></router-link>                   
@@ -32,7 +32,7 @@
                             </svg>
                             <span>Add Lecturers</span>
                         </li> -->
-                        <li class="logout">
+                        <li @click="logoout" class="logout">
                             <svg width="30" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.796 2.24399C12.653 1.82599 14 3.42199 14 4.99999V19C14 20.578 12.653 22.174 10.796 21.756C6.334 20.752 3 16.766 3 12C3 7.23399 6.334 3.24799 10.796 2.24399ZM16.293 8.29299C16.4805 8.10552 16.7348 8.0002 17 8.0002C17.2652 8.0002 17.5195 8.10552 17.707 8.29299L20.707 11.293C20.8945 11.4805 20.9998 11.7348 20.9998 12C20.9998 12.2652 20.8945 12.5195 20.707 12.707L17.707 15.707C17.5184 15.8891 17.2658 15.9899 17.0036 15.9877C16.7414 15.9854 16.4906 15.8802 16.3052 15.6948C16.1198 15.5094 16.0146 15.2586 16.0123 14.9964C16.01 14.7342 16.1108 14.4816 16.293 14.293L17.586 13H9C8.73478 13 8.48043 12.8946 8.29289 12.7071C8.10536 12.5196 8 12.2652 8 12C8 11.7348 8.10536 11.4804 8.29289 11.2929C8.48043 11.1053 8.73478 11 9 11H17.586L16.293 9.70699C16.1055 9.51946 16.0002 9.26515 16.0002 8.99999C16.0002 8.73482 16.1055 8.48052 16.293 8.29299Z" fill="#924374"/>
                             </svg>
@@ -243,6 +243,7 @@
                 </div>
             </div>
         </div>
+        <p v-else></p>
     </div>
 </template>
 
@@ -256,11 +257,20 @@
                 topic: "",
                 pages: "",
                 storage: "",
+                display: "",
                 files: null
             }
         },
 
         mounted() {
+            console.log('login value is ',localStorage.getItem('loggedin'));
+            if(localStorage.getItem('loggedin') === 'true'){
+                this.display = 'block';
+                console.log('after block');
+            }else{
+                alert('You must log in first');
+                this.$router.push('/login');
+            }
             var axios = require('axios');
 
             var config = {
@@ -277,6 +287,28 @@
                 this.storage = this.username;
                 console.log("The storage from the server is" + this.storage);
                 console.log("This is from the local server")
+
+                // Sample HTML input as a string
+                const htmlString = this.storage;
+
+                // Parse the HTML string into a DOM object
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlString, 'text/html');
+
+                const dataList = [];
+
+                // Query the document
+                const slabs = doc.querySelectorAll('.slab');
+                slabs.forEach(slab => {
+                    const title = slab.querySelector('.parent > p').textContent;
+                    const name = slab.querySelector('.child1 .name').textContent;
+                    const pages = slab.querySelector('.pages').textContent;
+                    const date = slab.querySelector('.date').textContent;
+                
+                    const data_ = {title:title, name:name, pages:pages, date: new Date()};
+                    dataList.push(data_);
+                    console.log('this is the data ', data_);
+                });
             })
             .catch(function (error) {
                 console.log(error);
@@ -344,6 +376,12 @@
                 $(".other2").hide();
                 add.classList.add("chosen");
                 proj.classList.remove("chosen");
+            },
+
+            logoout() {
+                localStorage.setItem('loggedin', false);
+                console.log(localStorage.getItem('loggedin'));
+                this.$router.push('/login');
             },
 
             showProj() {

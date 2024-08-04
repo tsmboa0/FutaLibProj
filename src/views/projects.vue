@@ -8,35 +8,23 @@
                         <img src="@/assets/book2.png" alt="">
                     </div>
                     <div class="topic">
-                        <h1>Cloud Computing A Better Means Of It Outsourcing</h1>
-                        <p>Fagbemi Emmanuel</p>
+                        <h1>{{ (this.storage).title }}</h1>
+                        <p>{{ (this.storage).name }}</p>
                     </div>
-                    <div style="flex-grow: 1; flex-basis: 0;">
+                    <!-- <div style="flex-grow: 1; flex-basis: 0;">
                         <button>
                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.79419 8.47349L8.89419 7.59849C8.69419 7.41515 8.45652 7.32749 8.18119 7.33549C7.90652 7.34415 7.67752 7.44015 7.49419 7.62349C7.31086 7.80682 7.21919 8.04015 7.21919 8.32349C7.21919 8.60682 7.31086 8.84015 7.49419 9.02349L10.0942 11.6235C10.2775 11.8068 10.5109 11.8985 10.7942 11.8985C11.0775 11.8985 11.3109 11.8068 11.4942 11.6235L14.1192 8.99849C14.3025 8.81515 14.3902 8.58582 14.3822 8.31049C14.3735 8.03582 14.2775 7.80682 14.0942 7.62349C13.9109 7.44015 13.6775 7.34415 13.3942 7.33549C13.1109 7.32749 12.8775 7.42349 12.6942 7.62349L11.7942 8.47349V5.29849C11.7942 5.01515 11.6985 4.78182 11.5072 4.59849C11.3152 4.41515 11.0775 4.32349 10.7942 4.32349C10.5109 4.32349 10.2735 4.41915 10.0822 4.61049C9.89019 4.80249 9.79419 5.04015 9.79419 5.32349V8.47349ZM6.79419 15.3235H14.8192C15.1025 15.3235 15.3359 15.2275 15.5192 15.0355C15.7025 14.8442 15.7942 14.6068 15.7942 14.3235C15.7942 14.0402 15.6982 13.8025 15.5062 13.6105C15.3149 13.4192 15.0775 13.3235 14.7942 13.3235H6.76919C6.48586 13.3235 6.25252 13.4192 6.06919 13.6105C5.88586 13.8025 5.79419 14.0402 5.79419 14.3235C5.79419 14.6068 5.88986 14.8442 6.08119 15.0355C6.27319 15.2275 6.51086 15.3235 6.79419 15.3235ZM10.7942 20.3235C9.41086 20.3235 8.11086 20.0608 6.89419 19.5355C5.67752 19.0108 4.61919 18.2985 3.71919 17.3985C2.81919 16.4985 2.10686 15.4402 1.58219 14.2235C1.05686 13.0068 0.794189 11.7068 0.794189 10.3235C0.794189 8.94015 1.05686 7.64015 1.58219 6.42349C2.10686 5.20682 2.81919 4.14849 3.71919 3.24849C4.61919 2.34849 5.67752 1.63582 6.89419 1.11049C8.11086 0.58582 9.41086 0.323486 10.7942 0.323486C12.1775 0.323486 13.4775 0.58582 14.6942 1.11049C15.9109 1.63582 16.9692 2.34849 17.8692 3.24849C18.7692 4.14849 19.4815 5.20682 20.0062 6.42349C20.5315 7.64015 20.7942 8.94015 20.7942 10.3235C20.7942 11.7068 20.5315 13.0068 20.0062 14.2235C19.4815 15.4402 18.7692 16.4985 17.8692 17.3985C16.9692 18.2985 15.9109 19.0108 14.6942 19.5355C13.4775 20.0608 12.1775 20.3235 10.7942 20.3235Z" fill="white"/>
                             </svg>
                             <span>Download</span>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="btns" style="position: absolute;">
-                    <!-- <button>Summary</button> -->
+                <!-- <div class="btns" style="position: absolute;">
+                    <button>Summary</button>
                     <button class="act">Details</button>
-                </div>
+                </div> -->
             </div>
-            <!-- <div class="words">
-                <p>Lorem ipsum dolor sit amet consectetur. Nulla odio rutrum scelerisque lectus. Id elementum molestie senectus et sit leo. 
-                    Ipsum faucibus auctor sit tellus molestie justo in quis. Tellus morbi elit rhoncus mi.
-                    Tellus nec dictum purus et massa scelerisque egestas tellus venenatis. Ornare ut elit in eu quis tellus. 
-                    Integer metus id cursus sollicitudin purus suscipit congue ullamcorper. Urna ultricies elementum non integer. 
-                    Proin nisl arcu dignissim consectetur facilisis elementum mattis bibendum. Porta in nec scelerisque sem at sed egestas auctor. 
-                    Egestas auctor sit nunc cras leo tempus fames. Pulvinar ultrices in morbi consectetur lorem neque. Lectus a dignissim diam commodo 
-                    euismod. Euismod aenean sit egestas augue est eget. Felis blandit sit proin donec. Gravida eu in quis malesuada malesuada. 
-                    Id nibh hac id mauris. Consequat vulputate sed posuere suscipit vestibulum lorem sollicitudin. Etiam in dictum nunc risus mi in. 
-                    Cursus.
-                </p>
-            </div> -->
             <div class="about">
                 <div>
                     <div style="display: flex; gap: 20px">
@@ -44,7 +32,7 @@
                             <circle cx="24" cy="24" r="24" fill="#E7F7FF"/>
                             <path d="M23.5517 14C24.8321 14 26.06 14.5086 26.9653 15.414C27.8707 16.3193 28.3793 17.5472 28.3793 18.8276C28.3793 20.1079 27.8707 21.3359 26.9653 22.2412C26.06 23.1466 24.8321 23.6552 23.5517 23.6552C22.2714 23.6552 21.0435 23.1466 20.1381 22.2412C19.2328 21.3359 18.7241 20.1079 18.7241 18.8276C18.7241 17.5472 19.2328 16.3193 20.1381 15.414C21.0435 14.5086 22.2714 14 23.5517 14ZM13.8966 17.4483C14.669 17.4483 15.3862 17.6552 16.0069 18.0276C15.8 20 16.3793 21.9586 17.5655 23.4897C16.8759 24.8138 15.4966 25.7241 13.8966 25.7241C12.7991 25.7241 11.7466 25.2882 10.9706 24.5122C10.1946 23.7362 9.75862 22.6837 9.75862 21.5862C9.75862 20.4888 10.1946 19.4363 10.9706 18.6602C11.7466 17.8842 12.7991 17.4483 13.8966 17.4483ZM33.2069 17.4483C34.3043 17.4483 35.3568 17.8842 36.1329 18.6602C36.9089 19.4363 37.3448 20.4888 37.3448 21.5862C37.3448 22.6837 36.9089 23.7362 36.1329 24.5122C35.3568 25.2882 34.3043 25.7241 33.2069 25.7241C31.6069 25.7241 30.2276 24.8138 29.5379 23.4897C30.7405 21.9371 31.2987 19.981 31.0965 18.0276C31.7172 17.6552 32.4345 17.4483 33.2069 17.4483ZM14.5862 31.5862C14.5862 28.731 18.6 26.4138 23.5517 26.4138C28.5034 26.4138 32.5172 28.731 32.5172 31.5862V34H14.5862V31.5862ZM7 34V31.931C7 30.0138 9.6069 28.4 13.1379 27.931C12.3241 28.869 11.8276 30.1655 11.8276 31.5862V34H7ZM40.1034 34H35.2759V31.5862C35.2759 30.1655 34.7793 28.869 33.9655 27.931C37.4965 28.4 40.1034 30.0138 40.1034 31.931V34Z" fill="#128BC7"/>
                         </svg>
-                        <p><b>Author:</b> <span>Fagbemi Emmanuel</span></p>
+                        <p><b>Author:</b> <span>{{ (this.storage).name }}</span></p>
                     </div>
                     <div style="display: flex; gap: 20px">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +47,7 @@
                             </clipPath>
                             </defs>
                         </svg>
-                        <p><b>Date Published:</b> <span>May 16 2023</span></p>
+                        <p><b>Date Published:</b> <span>{{ (this.storage).date }}</span></p>
                     </div>
                     <div style="display: flex; gap: 20px">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +78,7 @@
                             <circle cx="24" cy="24" r="24" fill="#E7F7FF"/>
                             <path d="M18 34C17.45 34 16.9793 33.8043 16.588 33.413C16.196 33.021 16 32.55 16 32V29H32V32C32 32.55 31.8043 33.021 31.413 33.413C31.021 33.8043 30.55 34 30 34H18ZM26 21H30L25 16V20C25 20.2833 25.096 20.5207 25.288 20.712C25.4793 20.904 25.7167 21 26 21ZM22 27C21.7167 27 21.4793 26.904 21.288 26.712C21.096 26.5207 21 26.2833 21 26C21 25.7167 21.096 25.479 21.288 25.287C21.4793 25.0957 21.7167 25 22 25H26C26.2833 25 26.521 25.0957 26.713 25.287C26.9043 25.479 27 25.7167 27 26C27 26.2833 26.9043 26.5207 26.713 26.712C26.521 26.904 26.2833 27 26 27H22ZM30 27C29.7167 27 29.4793 26.904 29.288 26.712C29.096 26.5207 29 26.2833 29 26C29 25.7167 29.096 25.479 29.288 25.287C29.4793 25.0957 29.7167 25 30 25H34C34.2833 25 34.5207 25.0957 34.712 25.287C34.904 25.479 35 25.7167 35 26C35 26.2833 34.904 26.5207 34.712 26.712C34.5207 26.904 34.2833 27 34 27H30ZM14 27C13.7167 27 13.4793 26.904 13.288 26.712C13.096 26.5207 13 26.2833 13 26C13 25.7167 13.096 25.479 13.288 25.287C13.4793 25.0957 13.7167 25 14 25H18C18.2833 25 18.521 25.0957 18.713 25.287C18.9043 25.479 19 25.7167 19 26C19 26.2833 18.9043 26.5207 18.713 26.712C18.521 26.904 18.2833 27 18 27H14ZM16 23V16C16 15.45 16.196 14.979 16.588 14.587C16.9793 14.1957 17.45 14 18 14H25.175C25.4417 14 25.696 14.05 25.938 14.15C26.1793 14.25 26.3917 14.3917 26.575 14.575L31.425 19.425C31.6083 19.6083 31.75 19.8207 31.85 20.062C31.95 20.304 32 20.5583 32 20.825V23H16Z" fill="#128BC7"/>
                         </svg>
-                        <p><b>Doc Pages:</b> <span>65</span></p>
+                        <p><b>Doc Pages:</b> <span>{{ (this.storage).pages }}</span></p>
                     </div>
                 </div>
             </div>
@@ -99,14 +87,28 @@
 </template>
 
 <script>
-import navbar from '@/components/navbar'
+import navbar from '@/components/navbar';
 
 export default {
   name: 'HomeView',
 
   components: {
     navbar,
+  },
+
+  data() {
+    return{
+        storage:{}
+    }
+  },
+
+  mounted() {
+    console.log("Mounted!!");
+    console.log('The data index is ',localStorage.getItem('dataIndex'));
+    this.storage = (JSON.parse(localStorage.getItem('dataList')))[localStorage.getItem('dataIndex')];
+    console.log('this.storage is ', (this.storage).title);
   }
+
 }
 </script>
 

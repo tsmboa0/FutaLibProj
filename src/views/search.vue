@@ -12,7 +12,7 @@
             <div class="tList">
                 <ul v-if="(this.searchresults).length > 0">
                     <!-- <router-link to="/project">hey</router-link> -->
-                    <li v-for="(item, index) in this.searchresults"   class="list" :key="index" @click="listt()">{{ item }}</li>
+                    <li v-for="(item) in this.searchresults"   class="list" :key="item.index" @click="listt(item.index)">{{ item.title }}</li>
                 </ul>
                 <ul v-else>
                     <li class="list">Search Item Not Found!</li>
@@ -46,7 +46,7 @@ export default {
 
       var config = {
         method: "get",
-        url: 'https://futa.smarthub.click/php/res.php?fetch_topics=1' ,
+        url: 'https://futa.smarthub.click/php/get.php?retrieve=1',
         // 'http://localhost/project/res.php?fetch_topics=1',
         headers: { }
       };
@@ -54,11 +54,28 @@ export default {
       axios(config)
       .then((response) =>  {
         this.allData = response.data;
+        // Sample HTML input as a string
+        const htmlString = this.allData;
 
-        (this.allData).forEach(result => {
+        // Parse the HTML string into a DOM object
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
+
+        const dataTopics = [];
+
+        // Query the document
+        const slabs = doc.querySelectorAll('.slab');
+        slabs.forEach(slab => {
+            const title = slab.querySelector('.parent > p').textContent;
+            dataTopics.push(title);
+        });
+
+        (dataTopics).forEach(result => {
             console.log(result);
             if(result.toLowerCase().includes(this.searchkey)){
-                this.searchresults.push(result);
+                const index_ = dataTopics.indexOf(result);
+                const data_ = {index:index_, title:result}
+                this.searchresults.push(data_);
             };
         });
         console.log("serachresult is ",(filteredList).length); 
@@ -69,7 +86,9 @@ export default {
   },
 
   methods: {
-    listt() {
+    listt(index) {
+        localStorage.setItem('dataIndex', index);
+        // console.log('search data index is ', localStorage.getItem('dataIndex'));
         // this.$router.push('/search');
         this.$router.push('/project/');
     }

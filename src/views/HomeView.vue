@@ -22,7 +22,7 @@
               <!-- @click="check()" -->
               <div class="searchBox" id="searchBox" >
                   <ul class="result" id="result"> 
-                      <li v-for="(topic, index) in allData" :key="index">
+                      <li v-for="(topic, index) in allData" :key="index" @click="setDataIndex(index)">
                         <router-link to="/project" id="empty">{{ topic }}</router-link>
                       </li>
                   </ul>
@@ -62,6 +62,7 @@ export default {
     return {
       allData: '',
       empty: false,
+      storage:[],
     }
   },
 
@@ -72,24 +73,53 @@ export default {
   },
 
   mounted() {
-    var axios = require('axios');
+      var axios = require('axios');
 
       var config = {
-        method: "get",
-        url: 'https://futa.smarthub.click/php/res.php?fetch_topics=1' ,
-        // 'http://localhost/project/res.php?fetch_topics=1',
-        headers: { }
+          method: "GET",
+          // url: 'http://localhost/project/get.php?retrieve=1',
+          url: 'https://futa.smarthub.click/php/get.php?retrieve=1', 
+          headers: { }
       };
 
       axios(config)
       .then((response) =>  {
-        this.allData = response.data
+          this.storage = response.data
 
-        console.log(JSON.stringify(this.allData))
+          // Sample HTML input as a string
+          const htmlString = this.storage;
+
+          // Parse the HTML string into a DOM object
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlString, 'text/html');
+
+          const dataList = [];
+          const dataTopics = [];
+
+          // Query the document
+          const slabs = doc.querySelectorAll('.slab');
+          slabs.forEach(slab => {
+              const title = slab.querySelector('.parent > p').textContent;
+              const name = slab.querySelector('.child1 .name').textContent;
+              const pages = slab.querySelector('.pages').textContent;
+              const date = slab.querySelector('.date').textContent;
+          
+              const data_ = {title:title, name:name, pages:pages, date: new Date()};
+              dataList.push(data_);
+              dataTopics.push(title);
+              console.log('this is the data ', data_);
+          });
+          this.allData = [...dataTopics];
+          localStorage.setItem('dataList', JSON.stringify(dataList));
+          console.log('this is the dataList in the localStorage ',JSON.parse(localStorage.getItem('dataList')));
+          console.log('first data is ', (JSON.parse(localStorage.getItem('dataList')))[0].title);
+          console.log('the data topics are ', this.allData);
       })
       .catch(function (error) {
-        console.log(error);
+          console.log(error);
       })
+
+      // End dataList;
   },
 
   components: {
@@ -132,6 +162,11 @@ export default {
       } else {
         $(".searchBox").hide(200);
       }
+    },
+
+    setDataIndex(index){
+      localStorage.setItem('dataIndex', index);
+      console.log('The index is ', localStorage.getItem('dataIndex'));
     },
 
     checkk() {
