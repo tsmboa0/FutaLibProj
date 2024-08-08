@@ -284,12 +284,12 @@
             .then((response) =>  {
                 this.username = response.data
 
-                this.storage = this.username;
-                console.log("The storage from the server is" + this.storage);
+                // this.storage = this.username;
+                console.log("The storage from the server is" + response.data);
                 console.log("This is from the local server")
 
                 // Sample HTML input as a string
-                const htmlString = this.storage;
+                const htmlString = response.data;
 
                 // Parse the HTML string into a DOM object
                 const parser = new DOMParser();
@@ -305,10 +305,26 @@
                     const pages = slab.querySelector('.pages').textContent;
                     const date = slab.querySelector('.date').textContent;
                 
-                    const data_ = {title:title, name:name, pages:pages, date: new Date()};
+                    const data_ = {title:title, name:name, pages:pages, date: 2024};
                     dataList.push(data_);
                     console.log('this is the data ', data_);
                 });
+
+                   // Clear the text content of all elements with the class '.date'
+                    const dateElements = doc.querySelectorAll('.date');
+                    dateElements.forEach(dateElement => {
+                        dateElement.textContent = '';  // Replace text content with an empty string
+                    });
+                    const downloadElements = doc.querySelectorAll('button');
+                    downloadElements.forEach(downloadElement => {
+                        downloadElement.innerHTML = '';  // Replace text content with an empty string
+                    });
+
+                    // Convert the modified HTML back to a string
+                    const modifiedHTML = doc.documentElement.outerHTML;
+
+                    // Use this modifiedHTML in your Vue component
+                    this.storage = modifiedHTML;
             })
             .catch(function (error) {
                 console.log(error);

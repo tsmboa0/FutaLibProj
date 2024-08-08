@@ -104,7 +104,7 @@ export default {
               const pages = slab.querySelector('.pages').textContent;
               const date = slab.querySelector('.date').textContent;
           
-              const data_ = {title:title, name:name, pages:pages, date: new Date()};
+              const data_ = {title:title, name:name, pages:pages, date: new Date().toLocaleDateString()};
               dataList.push(data_);
               dataTopics.push(title);
               console.log('this is the data ', data_);

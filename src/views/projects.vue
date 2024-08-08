@@ -61,7 +61,7 @@
                             </clipPath>
                             </defs>
                         </svg>
-                        <p><b>Department:</b> <span>Information Technology</span></p>
+                        <p><b>Department:</b> <span>Computer Engineering.</span></p>
                     </div>
                 </div>
                 <div class="linne"></div>

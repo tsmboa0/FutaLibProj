@@ -159,7 +159,7 @@ import useVuelidate from '@vuelidate/core'
         var password = document.getElementById('passwordd');
         var cred = document.getElementById('invalidCred');
 
-        if(email.value === "ola@futa.edu.ng" && password.value === 'FutaLibProj1#') {
+        if(email.value === "cpe-hod@futa.edu.ng" && password.value === 'FutaLibProj1#') {
           submit.disabled = false;
           localStorage.setItem('loggedin', true);
           console.log(localStorage.getItem('loggedin'));
